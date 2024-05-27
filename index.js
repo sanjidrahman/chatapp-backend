@@ -31,7 +31,7 @@ app.use(session({
 }))
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/chatapp')
+mongoose.connect('mongodb+srv://sanjid:mongosanjid@cluster0.ylbg7lk.mongodb.net/chatapp')
     .then(() => console.log('DB Connected..!'))
     .catch((err) => console.log(err))
 
@@ -69,6 +69,10 @@ const securepassword = async (password) => {
         console.log(err.message);
     }
 }
+
+app.get('/', (req, res) => {
+    res.send('Welcome to chatapp backend')
+})
 
 // Register endpoint
 app.post('/register', async (req, res) => {
